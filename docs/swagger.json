@@ -1,0 +1,129 @@
+{
+    "schemes": [
+        "http"
+    ],
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample server server.",
+        "title": "Covid Data API",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "API Support",
+            "url": "http://www.swagger.io/support",
+            "email": "support@swagger.io"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:5050",
+    "basePath": "/",
+    "paths": {
+        "/coviddata": {
+            "get": {
+                "summary": "Get covid data from coordinates",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "latitude",
+                        "name": "lat",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "longitude",
+                        "name": "long",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.CovidData"
+                        }
+                    }
+                }
+            }
+        },
+        "/ping": {
+            "get": {
+                "consumes": [
+                    "*/*"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Ping for server health",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.CovidData": {
+            "type": "object",
+            "properties": {
+                "meta": {
+                    "$ref": "#/definitions/models.Meta"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "total": {
+                    "$ref": "#/definitions/models.Total"
+                }
+            }
+        },
+        "models.Meta": {
+            "type": "object",
+            "properties": {
+                "date": {
+                    "type": "string"
+                },
+                "last_updated": {
+                    "type": "string"
+                },
+                "population": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.Total": {
+            "type": "object",
+            "properties": {
+                "confirmed": {
+                    "type": "integer"
+                },
+                "deceased": {
+                    "type": "integer"
+                },
+                "recovered": {
+                    "type": "integer"
+                },
+                "tested": {
+                    "type": "integer"
+                },
+                "vaccinated1": {
+                    "type": "integer"
+                },
+                "vaccinated2": {
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

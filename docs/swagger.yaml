@@ -1,0 +1,85 @@
+basePath: /
+definitions:
+  models.CovidData:
+    properties:
+      meta:
+        $ref: '#/definitions/models.Meta'
+      state:
+        type: string
+      total:
+        $ref: '#/definitions/models.Total'
+    type: object
+  models.Meta:
+    properties:
+      date:
+        type: string
+      last_updated:
+        type: string
+      population:
+        type: integer
+    type: object
+  models.Total:
+    properties:
+      confirmed:
+        type: integer
+      deceased:
+        type: integer
+      recovered:
+        type: integer
+      tested:
+        type: integer
+      vaccinated1:
+        type: integer
+      vaccinated2:
+        type: integer
+    type: object
+host: localhost:5050
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a sample server server.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Covid Data API
+  version: "1.0"
+paths:
+  /coviddata:
+    get:
+      parameters:
+      - description: latitude
+        in: query
+        name: lat
+        required: true
+        type: string
+      - description: longitude
+        in: query
+        name: long
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.CovidData'
+      summary: Get covid data from coordinates
+  /ping:
+    get:
+      consumes:
+      - '*/*'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Ping for server health
+schemes:
+- http
+swagger: "2.0"
