@@ -76,7 +76,7 @@ func get_covid_data(c echo.Context) error {
 // @license.name Apache 2.0
 // @license.url http://www.apache.org/licenses/LICENSE-2.0.html
 
-// @host localhost:5050
+// @host https://intense-meadow-86584.herokuapp.com
 // @BasePath /
 // @schemes http
 func main() {
