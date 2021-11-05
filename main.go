@@ -114,5 +114,10 @@ func main() {
 	e.GET("/ping", ping)
 	e.GET("/coviddata", get_covid_data)
 
-	e.Logger.Fatal(e.Start(":5050"))
+	var port string
+	port = os.Getenv("PORT")
+	if port == "" {
+		port = "5050"
+	}
+	e.Logger.Fatal(e.Start(":" + port))
 }
