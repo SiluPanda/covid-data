@@ -1,7 +1,7 @@
 module inshorts
 
-// +heroku goVersion go1.11
-go 1.11
+// +heroku goVersion go1.15
+go 1.15
 
 require (
 	github.com/joho/godotenv v1.4.0
