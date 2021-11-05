@@ -18,7 +18,7 @@
         },
         "version": "1.0"
     },
-    "host": "https://intense-meadow-86584.herokuapp.com",
+    "host": "intense-meadow-86584.herokuapp.com",
     "basePath": "/",
     "paths": {
         "/coviddata": {

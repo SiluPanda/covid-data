@@ -33,7 +33,7 @@ definitions:
       vaccinated2:
         type: integer
     type: object
-host: https://intense-meadow-86584.herokuapp.com
+host: intense-meadow-86584.herokuapp.com
 info:
   contact:
     email: support@swagger.io
